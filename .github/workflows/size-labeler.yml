@@ -1,6 +1,8 @@
 name: size-label
-on: pull_request
-
+on:
+  pull_request:
+    branches:
+      - "**"
 jobs:
   size-label:
     runs-on: ubuntu-latest
