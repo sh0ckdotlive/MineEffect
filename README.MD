@@ -1,7 +1,9 @@
 # MineEffect
 ![License](https://img.shields.io/github/license/sh0ckr6/mineeffect?style=for-the-badge)
-![Releases](https://img.shields.io/github/v/release/sh0ckr6/mineeffect?style=for-the-badge)
-![Downloads](https://img.shields.io/github/downloads/sh0ckr6/mineeffect/total?style=for-the-badge)
+
+[comment]: <> (![Releases]&#40;https://img.shields.io/github/v/release/sh0ckr6/mineeffect?style=for-the-badge&#41;)
+
+[comment]: <> (![Downloads]&#40;https://img.shields.io/github/downloads/sh0ckr6/mineeffect/total?style=for-the-badge&#41;)
 
 ![Open Issues](https://img.shields.io/github/issues-raw/sh0ckR6/MineEffect?style=for-the-badge)
 ![Open PRs](https://img.shields.io/github/issues-pr-raw/sh0ckr6/mineeffect?style=for-the-badge)
