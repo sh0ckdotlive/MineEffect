@@ -25,6 +25,11 @@ public class EffectHandler implements Listener {
     Player player = event.getPlayer();
     Random random = new Random(System.currentTimeMillis());
     
-    player.addPotionEffect(new PotionEffect(effects.get(random.nextInt(effects.size())), 5 * 20, 0, true, false, true));
+    player.addPotionEffect(new PotionEffect(effects.get(random.nextInt(effects.size())),
+            random.nextInt(15) * 20,
+            random.nextInt(9),
+            true,
+            false,
+            true));
   }
 }
