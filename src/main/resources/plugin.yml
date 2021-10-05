@@ -1,0 +1,6 @@
+main: live.sh0ck.mineeffect.MineEffect
+name: MineEffect
+description: Mining is boring, why not add random effects?
+author: sh0ckR6
+prefix: MINE-EFFECT
+version: ${project.version}
