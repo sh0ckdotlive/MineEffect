@@ -1,5 +1,6 @@
 package live.sh0ck.mineeffect.handlers;
 
+import live.sh0ck.mineeffect.utils.MathUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,9 +26,22 @@ public class EffectHandler implements Listener {
     Player player = event.getPlayer();
     Random random = new Random(System.currentTimeMillis());
     
-    player.addPotionEffect(new PotionEffect(effects.get(random.nextInt(effects.size())),
-            random.nextInt(15) * 20,
-            random.nextInt(9),
+    PotionEffectType type = effects.get(random.nextInt(effects.size()));
+    int duration = random.nextInt(15) + 1;
+    int amplifier = random.nextInt(9);
+  
+    // Ensure the player is unable to instantly die from potion effects
+    // These calculations are assuming the player is at full health
+    if (type.equals(PotionEffectType.HARM)) {
+      amplifier = MathUtils.clamp(amplifier, 0, 1);
+      duration = 0;
+    } else if (type.equals(PotionEffectType.WITHER) && amplifier >= 3) {
+      duration = 9;
+    }
+    
+    player.addPotionEffect(new PotionEffect(type,
+            (duration * 20) + 1,
+            amplifier,
             true,
             false,
             true));
