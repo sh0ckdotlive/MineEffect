@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: "16"
-          distrubition: adopt
+          distribution: adopt
           cache: maven
       - name: Run with Maven
         run: mvn -B pacakge --file pom.xml
