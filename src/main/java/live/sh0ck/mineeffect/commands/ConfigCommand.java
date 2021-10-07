@@ -168,13 +168,10 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
     // Convert the provided String value to the required type and set it in the config
     // This could be made much cleaner with JDK 17's "Switch Pattern Matching" but this is JDK 16, not 17.
     try {
-      if (oldValue instanceof Integer) {
-        ConfigManager.setInConfig(config, path, Integer.parseInt(value));
-      } else if (oldValue instanceof String) {
-        ConfigManager.setInConfig(config, path, value);
-      } else if (oldValue instanceof Float) {
-        ConfigManager.setInConfig(config, path, Float.parseFloat(value));
-      } else if (oldValue instanceof Boolean) {
+      if (oldValue instanceof Integer) ConfigManager.setInConfig(config, path, Integer.parseInt(value));
+      else if (oldValue instanceof String) ConfigManager.setInConfig(config, path, value);
+      else if (oldValue instanceof Float) ConfigManager.setInConfig(config, path, Float.parseFloat(value));
+      else if (oldValue instanceof Boolean) {
         // Check that the provided values are either true or false. The official implementation of Boolean.parseBoolean()
         // only checks if the string is true, not if it's true or false. This means that any string other than true
         // is considered to be false.
