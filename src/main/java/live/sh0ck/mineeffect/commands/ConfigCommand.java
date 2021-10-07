@@ -19,7 +19,7 @@ import java.util.MissingResourceException;
  * {@link BaseCommand} class representing the <code>/config</code> command
  *
  * @author sh0ckR6
- * @since 2021.1004.1
+ * @since 2021.1007.1
  */
 public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerCommand, IServerCommand {
   
@@ -28,7 +28,7 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
    *
    * @param plugin The plugin to register this to
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   public ConfigCommand(MineEffect plugin) {
     super("config", List.of(), plugin);
@@ -42,7 +42,7 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
    * @param label The name of the command
    * @param args The arguments passed to the command
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   @Override
   protected void execute(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -62,7 +62,7 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
    * @param args The current list of arguments
    * @return A list of options for tab completion
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   @Override
   public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
@@ -106,7 +106,7 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
    * @param sender The {@link CommandSender} that sent the command
    * @param args The arguments of this subcommand
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   private void handleReload(CommandSender sender, String[] args) {
     String configName = args[0];
@@ -132,7 +132,7 @@ public class ConfigCommand extends BaseCommand implements TabCompleter, IPlayerC
    * @param sender The {@link CommandSender} that sent the command
    * @param args The arguments of the subcommand
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   private void handleEdit(CommandSender sender, String[] args) {
     // Check if the user has provided arguments

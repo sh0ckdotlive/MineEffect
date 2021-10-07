@@ -15,14 +15,40 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * {@link Listener} for the Effect system
+ *
+ * @author sh0ckR6
+ * @since 2021.1007.1
+ */
 public class EffectHandler implements Listener {
   
+  /**
+   * Cached list of all {@link PotionEffectType}s
+   *
+   * @since 2021.1007.1
+   */
   private final List<PotionEffectType> effects = List.of(PotionEffectType.values());
   
+  /**
+   * Constructor
+   * @param plugin The {@link JavaPlugin} this listener will be registered to
+   *
+   * @author sh0ckR6
+   * @since 2021.1007.1
+   */
   public EffectHandler(JavaPlugin plugin) {
     plugin.getServer().getPluginManager().registerEvents(this, plugin);
   }
   
+  /**
+   * Handle {@link BlockBreakEvent}
+   *
+   * @param event The {@link BlockBreakEvent} passed to this listener
+   *
+   * @author sh0ckR6
+   * @since 2021.1007.1
+   */
   @EventHandler(priority = EventPriority.MONITOR)
   public void onBlockBreak(BlockBreakEvent event) {
     Configuration config = ConfigManager.getConfig("config");

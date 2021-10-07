@@ -6,8 +6,20 @@ import live.sh0ck.mineeffect.managers.ConfigManager;
 import live.sh0ck.mineeffect.managers.Configuration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * Class that represents the {@link JavaPlugin} that will be loaded.
+ *
+ * @author sh0ckR6
+ * @since 2021.1007.1
+ */
 public class MineEffect extends JavaPlugin {
   
+  /**
+   * Run when the plugin is enabled. All initialization happens here.
+   *
+   * @author sh0ckR6
+   * @since 2021.1007.1
+   */
   @Override
   public void onEnable() {
     registerHandlers();
@@ -15,10 +27,22 @@ public class MineEffect extends JavaPlugin {
     registerCommands();
   }
   
+  /**
+   * Register all {@link org.bukkit.event.Listener}s.
+   *
+   * @author sh0ckR6
+   * @since 2021.1007.1
+   */
   private void registerHandlers() {
     new EffectHandler(this);
   }
   
+  /**
+   * Register and set defaults for all configuration files.
+   *
+   * @author sh0ckR6
+   * @since 2021.1007.1
+   */
   private void registerConfigs() {
     // Load and cache all configs
     ConfigManager.loadAllConfigs(this);
@@ -37,6 +61,12 @@ public class MineEffect extends JavaPlugin {
     ConfigManager.reloadConfigs(this);
   }
   
+  /**
+   * Register all commands defined in the plugin.yml file.
+   *
+   * @since 2021.1007.1
+   * @author sh0ckR6
+   */
   private void registerCommands() {
     new ConfigCommand(this);
   }
