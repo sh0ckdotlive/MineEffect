@@ -224,7 +224,7 @@ public class ConfigManager {
    * @param plugin The current plugin
    * @throws MissingResourceException if the requested configuration could not be found
    * @author sh0ckR6
-   * @since latest
+   * @since 2021.1004.1
    */
   public static void reloadConfig(String name, JavaPlugin plugin) throws MissingResourceException {
     if (configurations.stream().filter(config -> config.name.equals(name)).findFirst().isEmpty()) {
@@ -243,7 +243,7 @@ public class ConfigManager {
    *
    * @return The list of registered {@link Configuration}s
    * @author sh0ckR6
-   * @since latest
+   * @since 2021.1004.1
    */
   public static List<Configuration> getConfigurations() {
     return configurations;
