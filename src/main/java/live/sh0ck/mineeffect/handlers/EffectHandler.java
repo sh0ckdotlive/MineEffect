@@ -1,5 +1,7 @@
 package live.sh0ck.mineeffect.handlers;
 
+import live.sh0ck.mineeffect.managers.ConfigManager;
+import live.sh0ck.mineeffect.managers.Configuration;
 import live.sh0ck.mineeffect.utils.MathUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,7 +13,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class EffectHandler implements Listener {
   
@@ -23,12 +25,21 @@ public class EffectHandler implements Listener {
   
   @EventHandler(priority = EventPriority.MONITOR)
   public void onBlockBreak(BlockBreakEvent event) {
+    Configuration config = ConfigManager.getConfig("config");
+  
     Player player = event.getPlayer();
-    Random random = new Random(System.currentTimeMillis());
-    
+  
+    ThreadLocalRandom random = ThreadLocalRandom.current();
+  
     PotionEffectType type = effects.get(random.nextInt(effects.size()));
-    int duration = random.nextInt(15) + 1;
-    int amplifier = random.nextInt(9);
+    
+    int maxDuration = config.yamlConfig.getInt("effects.duration.max");
+    int minDuration = config.yamlConfig.getInt("effects.duration.min");
+    int maxAmplifier = config.yamlConfig.getInt("effects.amplifier.max");
+    int minAmplifier = config.yamlConfig.getInt("effects.amplifier.min");
+  
+    int duration = random.nextInt(minDuration, maxDuration + 1) + 1;
+    int amplifier = random.nextInt(minAmplifier, maxAmplifier + 1);
   
     // Ensure the player is unable to instantly die from potion effects
     // These calculations are assuming the player is at full health
