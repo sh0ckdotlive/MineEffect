@@ -1,4 +1,3 @@
 package live.sh0ck.mineeffect.commands;
 
-public interface IPlayerCommand {
-}
+public interface IPlayerCommand { }
