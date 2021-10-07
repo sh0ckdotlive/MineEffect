@@ -10,11 +10,17 @@ import java.util.List;
 
 public abstract class BaseCommand implements CommandExecutor {
   
+  protected JavaPlugin plugin;
+  protected String name;
+  
   protected BaseCommand(String name, List<String> aliases, JavaPlugin plugin) {
     if (plugin.getCommand(name) == null) {
       plugin.getLogger().severe("The command " + name + " could not be found! Maybe you're missing the definition in the plugin.yml file?");
       return;
     }
+    
+    this.name = name;
+    this.plugin = plugin;
     
     plugin.getCommand(name).setExecutor(this);
     plugin.getCommand(name).setAliases(aliases);

@@ -1,5 +1,6 @@
 package live.sh0ck.mineeffect;
 
+import live.sh0ck.mineeffect.commands.ConfigCommand;
 import live.sh0ck.mineeffect.handlers.EffectHandler;
 import live.sh0ck.mineeffect.managers.ConfigManager;
 import live.sh0ck.mineeffect.managers.Configuration;
@@ -11,6 +12,7 @@ public class MineEffect extends JavaPlugin {
   public void onEnable() {
     registerHandlers();
     registerConfigs();
+    registerCommands();
   }
   
   private void registerHandlers() {
@@ -33,5 +35,9 @@ public class MineEffect extends JavaPlugin {
     
     // Reload after setting defaults
     ConfigManager.reloadConfigs(this);
+  }
+  
+  private void registerCommands() {
+    new ConfigCommand(this);
   }
 }

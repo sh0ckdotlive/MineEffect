@@ -4,3 +4,7 @@ description: Mining is boring, why not add random effects?
 author: sh0ckR6
 prefix: MINE-EFFECT
 version: ${project.version}
+commands:
+  config:
+    usage: /config <edit|reload> ...
+    description: Edit configuration files for MineEffect within the game
