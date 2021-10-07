@@ -14,13 +14,13 @@ import java.util.Set;
 /** Utilities for configuration files
  *
  * @author sh0ckR6
- * @since 2021.1010.1
+ * @since 2021.1007.1
  */
 public class ConfigManager {
   
   /** List of cached {@link Configuration}s
    *
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   private static List<Configuration> configurations = new ArrayList<>();
   
@@ -28,7 +28,7 @@ public class ConfigManager {
    * @param plugin The current plugin
    *
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static void loadAllConfigs(JavaPlugin plugin) {
     if (!plugin.getDataFolder().exists()) {
@@ -50,7 +50,7 @@ public class ConfigManager {
    * @param plugin The current plugin
    *
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static void createNewConfig(String configName, JavaPlugin plugin) {
     File configFile = new File(plugin.getDataFolder(), configName + ".yml");
@@ -74,7 +74,7 @@ public class ConfigManager {
    *
    * @return True if the requested {@link Configuration} was found
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static boolean configurationExists(String configName) {
     return configurations.stream().anyMatch(configuration -> configuration.name.equals(configName));
@@ -87,7 +87,7 @@ public class ConfigManager {
    * @param plugin The current plugin
    * @return If a new file was created
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static boolean createIfNotPresent(String configName, JavaPlugin plugin) {
     boolean exists = configurationExists(configName);
@@ -103,7 +103,7 @@ public class ConfigManager {
    * @return All retrieved keys
    * @throws MissingResourceException if configuration was not found
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static Set<String> getAllKeysFromConfig(String name, Boolean deep) throws MissingResourceException {
     for (Configuration configuration : configurations) {
@@ -119,7 +119,7 @@ public class ConfigManager {
    * @return The value that was read
    * @throws MissingResourceException if configuration was not found
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static <T> T readFromConfig(String name, String path) throws MissingResourceException {
     for (Configuration configuration : configurations) {
@@ -134,7 +134,7 @@ public class ConfigManager {
    *
    * @return The value that was read
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static Object readFromConfig(YamlConfiguration config, String path) {
     return config.get(path);
@@ -146,7 +146,7 @@ public class ConfigManager {
    *
    * @return The value that was read
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static Object readFromConfig(File configFile, String path) {
     return YamlConfiguration.loadConfiguration(configFile).get(path);
@@ -159,7 +159,7 @@ public class ConfigManager {
    *
    * @throws MissingResourceException if configuration was not found
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static <T> void setInConfig(String name, String path, T value) throws MissingResourceException {
     for (Configuration configuration : configurations) {
@@ -182,7 +182,7 @@ public class ConfigManager {
    * @param name The name of the configuration
    * @return The found configuration, if any
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static Configuration getConfig(String name) throws MissingResourceException {
     return configurations.stream().filter(config -> config.name.equals(name)).findFirst().get();
@@ -194,7 +194,7 @@ public class ConfigManager {
    * @param config The {@link Configuration} to save
    * @throws MissingResourceException If the requested configuration could not be found
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static void saveConfig(Configuration config) throws MissingResourceException {
     if (config.file == null) throw new MissingResourceException("The requested configuration file could not be found!", config.name + ".yml", config.name);
@@ -210,7 +210,7 @@ public class ConfigManager {
    *
    * @param plugin The current plugin
    * @author sh0ckR6
-   * @since 2021.1010.1
+   * @since 2021.1007.1
    */
   public static void reloadConfigs(JavaPlugin plugin) {
     configurations = new ArrayList<>();
@@ -224,7 +224,7 @@ public class ConfigManager {
    * @param plugin The current plugin
    * @throws MissingResourceException if the requested configuration could not be found
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   public static void reloadConfig(String name, JavaPlugin plugin) throws MissingResourceException {
     if (configurations.stream().filter(config -> config.name.equals(name)).findFirst().isEmpty()) {
@@ -243,7 +243,7 @@ public class ConfigManager {
    *
    * @return The list of registered {@link Configuration}s
    * @author sh0ckR6
-   * @since 2021.1004.1
+   * @since 2021.1007.1
    */
   public static List<Configuration> getConfigurations() {
     return configurations;
